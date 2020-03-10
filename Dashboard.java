@@ -30,6 +30,10 @@ public String user;
         initComponents();
         sideBar.setSize(0,0);
         menuClose.setSize(0,0);
+        customersPanel.setSize(0,0);
+        summaryPanel.setSize(0,0);
+        ordersPanel.setSize(0,0);
+        stockPanel.setSize(0,0);
     }
 
     public Dashboard(String username) {
@@ -51,17 +55,24 @@ public String user;
         jLabel1 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        nullPanel = new javax.swing.JPanel();
         menuOpen = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         sideBar = new javax.swing.JPanel();
-        task1 = new javax.swing.JLabel();
+        customerSideBar = new javax.swing.JLabel();
         menuClose = new javax.swing.JLabel();
-        task2 = new javax.swing.JLabel();
-        task3 = new javax.swing.JLabel();
-        task4 = new javax.swing.JLabel();
+        stockSideBar = new javax.swing.JLabel();
+        orderSideBar = new javax.swing.JLabel();
+        summarySideBar = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        userIcon = new javax.swing.JLabel();
+        customersPanel = new javax.swing.JPanel();
+        customersPageTitle = new javax.swing.JLabel();
+        stockPanel = new javax.swing.JPanel();
+        stockPageTitle = new javax.swing.JLabel();
+        ordersPanel = new javax.swing.JPanel();
+        ordersPageTitle = new javax.swing.JLabel();
+        summaryPanel = new javax.swing.JPanel();
+        summaryPageTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kwanza Tukule | Dashboard");
@@ -81,19 +92,9 @@ public String user;
         jPanel1.add(usernameLabel);
         usernameLabel.setBounds(1000, 20, 200, 20);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1190, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(210, 60, 1190, 730);
+        nullPanel.setLayout(null);
+        jPanel1.add(nullPanel);
+        nullPanel.setBounds(210, 60, 1190, 730);
 
         menuOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kwanza/tukule/management/system/menu.png"))); // NOI18N
         menuOpen.setText("jLabel2");
@@ -114,11 +115,11 @@ public String user;
         sideBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         sideBar.setForeground(new java.awt.Color(255, 255, 255));
 
-        task1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        task1.setText("Task");
-        task1.addMouseListener(new java.awt.event.MouseAdapter() {
+        customerSideBar.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        customerSideBar.setText("Customers");
+        customerSideBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                task1MousePressed(evt);
+                customerSideBarMousePressed(evt);
             }
         });
 
@@ -130,27 +131,27 @@ public String user;
             }
         });
 
-        task2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        task2.setText("Task");
-        task2.addMouseListener(new java.awt.event.MouseAdapter() {
+        stockSideBar.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        stockSideBar.setText("Stock");
+        stockSideBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                task2MousePressed(evt);
+                stockSideBarMousePressed(evt);
             }
         });
 
-        task3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        task3.setText("Task");
-        task3.addMouseListener(new java.awt.event.MouseAdapter() {
+        orderSideBar.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        orderSideBar.setText("Orders");
+        orderSideBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                task3MousePressed(evt);
+                orderSideBarMousePressed(evt);
             }
         });
 
-        task4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        task4.setText("Task");
-        task4.addMouseListener(new java.awt.event.MouseAdapter() {
+        summarySideBar.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        summarySideBar.setText("Summary");
+        summarySideBar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                task4MousePressed(evt);
+                summarySideBarMousePressed(evt);
             }
         });
 
@@ -166,10 +167,10 @@ public String user;
                     .addGroup(sideBarLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(task4)
-                            .addComponent(task3)
-                            .addComponent(task2)
-                            .addComponent(task1))
+                            .addComponent(summarySideBar)
+                            .addComponent(orderSideBar)
+                            .addComponent(stockSideBar)
+                            .addComponent(customerSideBar))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -179,13 +180,13 @@ public String user;
                 .addGap(45, 45, 45)
                 .addComponent(menuClose, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
-                .addComponent(task1)
+                .addComponent(customerSideBar)
                 .addGap(40, 40, 40)
-                .addComponent(task2)
+                .addComponent(stockSideBar)
                 .addGap(41, 41, 41)
-                .addComponent(task3)
+                .addComponent(orderSideBar)
                 .addGap(48, 48, 48)
-                .addComponent(task4)
+                .addComponent(summarySideBar)
                 .addContainerGap(347, Short.MAX_VALUE))
         );
 
@@ -202,10 +203,106 @@ public String user;
         jPanel1.add(logoutButton);
         logoutButton.setBounds(1130, 20, 106, 29);
 
-        userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kwanza/tukule/management/system/avatar.png"))); // NOI18N
-        userIcon.setText("jLabel4");
-        jPanel1.add(userIcon);
-        userIcon.setBounds(940, 10, 70, 90);
+        customersPanel.setBounds(new java.awt.Rectangle(210, 60, 1190, 730));
+
+        customersPageTitle.setFont(new java.awt.Font("Lucida Grande", 1, 30)); // NOI18N
+        customersPageTitle.setText("Customers");
+
+        javax.swing.GroupLayout customersPanelLayout = new javax.swing.GroupLayout(customersPanel);
+        customersPanel.setLayout(customersPanelLayout);
+        customersPanelLayout.setHorizontalGroup(
+            customersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customersPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(customersPageTitle)
+                .addContainerGap(1002, Short.MAX_VALUE))
+        );
+        customersPanelLayout.setVerticalGroup(
+            customersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customersPanelLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(customersPageTitle)
+                .addContainerGap(656, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(customersPanel);
+        customersPanel.setBounds(130, 120, 1190, 730);
+
+        stockPanel.setBounds(new java.awt.Rectangle(210, 60, 1190, 730));
+
+        stockPageTitle.setFont(new java.awt.Font("Lucida Grande", 1, 30)); // NOI18N
+        stockPageTitle.setText("Stock");
+
+        javax.swing.GroupLayout stockPanelLayout = new javax.swing.GroupLayout(stockPanel);
+        stockPanel.setLayout(stockPanelLayout);
+        stockPanelLayout.setHorizontalGroup(
+            stockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(stockPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(stockPageTitle)
+                .addContainerGap(1089, Short.MAX_VALUE))
+        );
+        stockPanelLayout.setVerticalGroup(
+            stockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(stockPanelLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(stockPageTitle)
+                .addContainerGap(656, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(stockPanel);
+        stockPanel.setBounds(130, 230, 1190, 730);
+
+        ordersPanel.setBounds(new java.awt.Rectangle(210, 60, 1190, 730));
+
+        ordersPageTitle.setFont(new java.awt.Font("Lucida Grande", 1, 30)); // NOI18N
+        ordersPageTitle.setText("Orders");
+
+        javax.swing.GroupLayout ordersPanelLayout = new javax.swing.GroupLayout(ordersPanel);
+        ordersPanel.setLayout(ordersPanelLayout);
+        ordersPanelLayout.setHorizontalGroup(
+            ordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ordersPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(ordersPageTitle)
+                .addContainerGap(1055, Short.MAX_VALUE))
+        );
+        ordersPanelLayout.setVerticalGroup(
+            ordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ordersPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(ordersPageTitle)
+                .addContainerGap(658, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(ordersPanel);
+        ordersPanel.setBounds(110, 350, 1190, 730);
+
+        summaryPanel.setBounds(new java.awt.Rectangle(210, 60, 1190, 730));
+
+        summaryPageTitle.setFont(new java.awt.Font("Lucida Grande", 1, 30)); // NOI18N
+        summaryPageTitle.setText("Summary");
+        summaryPageTitle.setBounds(new java.awt.Rectangle(-32633, -32382, 45, 16));
+
+        javax.swing.GroupLayout summaryPanelLayout = new javax.swing.GroupLayout(summaryPanel);
+        summaryPanel.setLayout(summaryPanelLayout);
+        summaryPanelLayout.setHorizontalGroup(
+            summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(summaryPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(summaryPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1013, Short.MAX_VALUE))
+        );
+        summaryPanelLayout.setVerticalGroup(
+            summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(summaryPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(summaryPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(650, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(summaryPanel);
+        summaryPanel.setBounds(110, 470, 1190, 730);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -285,6 +382,11 @@ public String user;
            } 
         }
     };th.start();
+     nullPanel.setBounds(210,60,1190,730);
+     customersPanel.setSize(0,0);
+     summaryPanel.setSize(0,0);
+     ordersPanel.setSize(0,0);
+     stockPanel.setSize(0,0);
     }//GEN-LAST:event_menuCloseMousePressed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -293,21 +395,37 @@ public String user;
             lg.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void task1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_task1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_task1MousePressed
+    private void customerSideBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerSideBarMousePressed
+     customersPanel.setBounds(210,60,1190,730);
+     summaryPanel.setSize(0,0);
+     ordersPanel.setSize(0,0);
+     stockPanel.setSize(0,0);
+     nullPanel.setSize(0,0);
+    }//GEN-LAST:event_customerSideBarMousePressed
 
-    private void task2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_task2MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_task2MousePressed
+    private void stockSideBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stockSideBarMousePressed
+      stockPanel.setBounds(210,60,1190,730);
+      customersPanel.setSize(0,0);
+      ordersPanel.setSize(0,0);
+      summaryPanel.setSize(0,0);
+      nullPanel.setSize(0,0);
+    }//GEN-LAST:event_stockSideBarMousePressed
 
-    private void task3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_task3MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_task3MousePressed
+    private void orderSideBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderSideBarMousePressed
+      ordersPanel.setBounds(210,60,1190,730);
+      summaryPanel.setSize(0,0);
+      customersPanel.setSize(0,0);
+      stockPanel.setSize(0,0);
+      nullPanel.setSize(0,0);
+    }//GEN-LAST:event_orderSideBarMousePressed
 
-    private void task4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_task4MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_task4MousePressed
+    private void summarySideBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_summarySideBarMousePressed
+      summaryPanel.setBounds(210,60,1190,730);
+      customersPanel.setSize(0,0);
+      ordersPanel.setSize(0,0);
+      stockPanel.setSize(0,0);
+      nullPanel.setSize(0,0);
+    }//GEN-LAST:event_summarySideBarMousePressed
 
     /**
      * @param args the command line arguments
@@ -345,19 +463,26 @@ public String user;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel customerSideBar;
+    private javax.swing.JLabel customersPageTitle;
+    private javax.swing.JPanel customersPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel menuClose;
     private javax.swing.JLabel menuOpen;
+    private javax.swing.JPanel nullPanel;
+    private javax.swing.JLabel orderSideBar;
+    private javax.swing.JLabel ordersPageTitle;
+    private javax.swing.JPanel ordersPanel;
     private javax.swing.JPanel sideBar;
-    private javax.swing.JLabel task1;
-    private javax.swing.JLabel task2;
-    private javax.swing.JLabel task3;
-    private javax.swing.JLabel task4;
-    private javax.swing.JLabel userIcon;
+    private javax.swing.JLabel stockPageTitle;
+    private javax.swing.JPanel stockPanel;
+    private javax.swing.JLabel stockSideBar;
+    private javax.swing.JLabel summaryPageTitle;
+    private javax.swing.JPanel summaryPanel;
+    private javax.swing.JLabel summarySideBar;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
