@@ -39,7 +39,10 @@ public String user;
     public Dashboard(String username) {
          this.user=username;
          initComponents();
-         
+         customersPanel.setSize(0,0);
+        summaryPanel.setSize(0,0);
+        ordersPanel.setSize(0,0);
+        stockPanel.setSize(0,0);
     }
    
     /**
