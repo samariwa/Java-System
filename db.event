@@ -1,0 +1,14 @@
+CREATE EVENT reset0
+    ON SCHEDULE
+      EVERY 1 DAY
+        STARTS '2020-03-30 00:00:00'
+DO 
+    UPDATE orders SET Balance = Balance + (0.1 * Balance) where DATE(`Created_at`) = CURRENT_DATE() and Balance > -100;
+    
+CREATE EVENT reset1
+    ON SCHEDULE
+      EVERY 1 DAY
+        STARTS '2020-03-30 00:00:00'
+DO
+    UPDATE orders SET Balance = Balance - 100 where DATE(`Created_at`) = CURRENT_DATE() and Balance < -100;    
+ 
