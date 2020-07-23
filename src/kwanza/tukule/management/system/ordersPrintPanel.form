@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="ordersPageTitle2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane17" min="-2" pref="1035" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="ordersPageTitle2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane17" min="-2" pref="456" max="-2" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="ordersPageTitle2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="30" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Orders Print"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane17">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="ordersTable2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Grande" size="16" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="8" rowCount="100">
+                <Column editable="false" title="Name" type="java.lang.Object"/>
+                <Column editable="false" title="Mobile No." type="java.lang.Object"/>
+                <Column editable="false" title="Item" type="java.lang.Object"/>
+                <Column editable="true" title="Qty" type="java.lang.Object"/>
+                <Column editable="false" title="Cost" type="java.lang.Object"/>
+                <Column editable="true" title="M-Pesa" type="java.lang.Object"/>
+                <Column editable="true" title="Cash" type="java.lang.Object"/>
+                <Column editable="false" title="Balance" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="rowHeight" type="int" value="17"/>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    public Component prepareRenderer(TableCellRenderer r, int rw ,int col )&#xa;    {&#xa;        Component c = super.prepareRenderer(r, rw, col);&#xa;        c.setBackground(Color.WHITE);&#xa;        c.setForeground(Color.BLACK);&#xa;        int rows=(Integer)ordersTable2.getRowCount();&#xa;        for(int row = 0; row&lt;rows; row++)&#xa;        {&#xa;            DefaultTableModel model = (DefaultTableModel)ordersTable2.getModel();&#xa;            double debt = Double.parseDouble(ordersTable2.getValueAt(rw, 7).toString());&#xa;            if(debt == 0.0 &amp;&amp; col==0 )&#xa;            {&#xa;                c.setBackground(Color.GREEN);&#xa;                c.setForeground(Color.BLACK);&#xa;            }&#xa;            else if(debt &gt; 0.0 &amp;&amp; col==0)&#xa;            {&#xa;                c.setBackground(Color.ORANGE);&#xa;                c.setForeground(Color.BLACK);&#xa;            }&#xa;            else if(debt &lt; 0.0 &amp;&amp; debt &gt;= -100.0 &amp;&amp; col==0)&#xa;            {&#xa;                c.setBackground(Color.LIGHT_GRAY);&#xa;                c.setForeground(Color.BLACK);&#xa;            }&#xa;            else if(debt &lt; -100.0 &amp;&amp; col==0)&#xa;            {&#xa;                c.setBackground(Color.RED);&#xa;                c.setForeground(Color.BLACK);&#xa;            }&#xa;        }&#xa;        return c;&#xa;    }&#xa;}&#xa;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
